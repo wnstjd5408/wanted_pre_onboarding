@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("WANTED_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("WANTED_DEBUG")
+DEBUG = os.environ.get("WANTED_DEBUG", False)
 
 ALLOWED_HOSTS = []
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     # DRF Authentication 이용
     "rest_framework",
     "django_filters",
-    #myapp
+    # myapp
     "companys",
 ]
 
@@ -124,3 +124,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# DRF
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",  # 인증된 사용자만 접근 가능
+        "rest_framework.permissions.IsAdminUser",  # 관리자만 접근 가능
+        "rest_framework.permissions.AllowAny",  # 누구나 접근 가능
+    ],
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
+    "DEFAULT_PAGINATION_CLASS": "config.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
