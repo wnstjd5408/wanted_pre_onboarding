@@ -16,3 +16,5 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class JobPostringViewSet(viewsets.ModelViewSet):
     queryset = Job_Posting.objects.all()
     serializer_class = JobPostingSerializer
+
+    permission_classes = [permissions.AllowAny]
