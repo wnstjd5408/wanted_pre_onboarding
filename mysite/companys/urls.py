@@ -7,7 +7,6 @@ router = routers.DefaultRouter()
 
 
 router.register(r"", CompanyViewSet, basename="company")
-
 job_posting_router = routers.NestedDefaultRouter(router, "", lookup="company")
 job_posting_router.register("job_postings", JobPostringViewSet, basename="job_posting")
 
