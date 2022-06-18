@@ -14,9 +14,15 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 
 # Create your views here.
-class JobPostringViewSet(viewsets.ModelViewSet):
+class JobPostingViewSet(viewsets.ModelViewSet):
     serializer_class = JobPostingSerializer
     permission_classes = [IsStaffOrReadOnly]
 
     def get_queryset(self):
         return Job_Posting.objects.filter(company=self.kwargs["company_pk"])
+
+
+class JobPostingAllViewSet(viewsets.ModelViewSet):
+    serializer_class = JobPostingSerializer
+    permission_classes = [IsStaffOrReadOnly]
+    queryset = Job_Posting.objects.all()

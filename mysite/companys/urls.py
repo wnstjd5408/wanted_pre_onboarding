@@ -1,14 +1,14 @@
 from django.urls import include, path
 from rest_framework_nested import routers
 
-from .views import CompanyViewSet, JobPostringViewSet
+from .views import CompanyViewSet, JobPostingViewSet
 
 router = routers.DefaultRouter()
 
 
 router.register(r"", CompanyViewSet, basename="company")
 job_posting_router = routers.NestedDefaultRouter(router, "", lookup="company")
-job_posting_router.register("job_postings", JobPostringViewSet, basename="job_posting")
+job_posting_router.register("job_postings", JobPostingViewSet, basename="job_posting")
 
 
 urlpatterns = [
