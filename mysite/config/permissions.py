@@ -1,3 +1,5 @@
+from operator import truediv
+
 from rest_framework import permissions
 
 
@@ -21,3 +23,22 @@ class IsUserOrReadOnly(permissions.BasePermission):
 
         # U와 D는 (그 이외 http 요청) Store의 user만 가능하게한다
         return obj.uIDX == request.user
+
+
+class IsStaffOrReadOnly(permissions.BasePermission):
+    edit_methods = ("PUT", "PATCH", "DELETE")
+
+    def has_permission(self, request, view):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        if request.method == "POST":
+            return request.user.is_staff
+        return request.user.is_authenticated
+
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        if request.method in self.edit_methods:
+            return request.user.is_staff
+        return False

@@ -29,3 +29,8 @@ class Job_Posting(models.Model):
 
     def __str__(self) -> str:
         return "{}번".format(str(self.id))
+
+    class Meta:
+        verbose_name = "채용공고"
+        verbose_name_plural = f"{verbose_name} 목록"
+        ordering = ["-id"]
