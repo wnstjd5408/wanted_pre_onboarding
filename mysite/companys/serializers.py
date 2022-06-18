@@ -14,4 +14,5 @@ class JobPostingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Job_Posting
-        fields = ("jp_position", "jp_content", "jp_compensation", "jp_technology", "company")
+        fields = ("id", "jp_position", "jp_content", "jp_compensation", "jp_technology", "company")
+        read_only_fields = ("company",)
