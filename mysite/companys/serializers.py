@@ -10,6 +10,8 @@ class CompanySerializer(serializers.ModelSerializer):
 
 
 class JobPostingSerializer(serializers.ModelSerializer):
+    # company_info = CompanySerializer()
+
     class Meta:
         model = Job_Posting
-        fields = ["jp_position", "jp_content", "jp_compensation", "jp_technology", "company"]
+        fields = ("jp_position", "jp_content", "jp_compensation", "jp_technology", "company")
