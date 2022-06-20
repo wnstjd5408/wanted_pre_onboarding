@@ -25,7 +25,7 @@ class Job_Posting(models.Model):
     jp_technology = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
-    company = models.ForeignKey(Company, related_name="companys", on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, related_name="job_postings", on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return "{}번".format(str(self.id))
