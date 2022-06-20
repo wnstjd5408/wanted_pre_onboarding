@@ -1,4 +1,5 @@
 from calendar import c
+from dataclasses import fields
 
 from rest_framework import serializers
 from rest_framework_nested.serializers import NestedHyperlinkedModelSerializer
@@ -67,3 +68,9 @@ class JobPostingSerializer(serializers.ModelSerializer):
     #     internal = super().to_internal_value(data)
     #     internal["company"] = company_internal
     #     return internal
+
+
+class ApplySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Apply
+        fields = "__all__"

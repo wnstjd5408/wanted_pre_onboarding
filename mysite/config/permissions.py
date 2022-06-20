@@ -22,7 +22,7 @@ class IsUserOrReadOnly(permissions.BasePermission):
             return True
 
         # U와 D는 (그 이외 http 요청) Store의 user만 가능하게한다
-        return obj.uIDX == request.user
+        return obj.user == request.user
 
 
 class IsStaffOrReadOnly(permissions.BasePermission):
