@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 
@@ -34,3 +35,9 @@ class Job_Posting(models.Model):
         verbose_name = "채용공고"
         verbose_name_plural = f"{verbose_name} 목록"
         ordering = ["-id"]
+
+
+class Apply(models.Model):
+    id = models.AutoField(primary_key=True)
+    job_posting = models.ForeignKey(Job_Posting, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
