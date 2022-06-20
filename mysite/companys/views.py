@@ -1,5 +1,6 @@
 from config.permissions import IsStaffOrReadOnly
 from rest_framework import permissions, viewsets
+from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Company, Job_Posting
@@ -17,6 +18,8 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class JobPostingViewSet(viewsets.ModelViewSet):
     serializer_class = JobPostingSerializer
     permission_classes = [IsStaffOrReadOnly]
+    filter_backends = [SearchFilter]
+    search_fields = ["jp_technology"]
 
     def get_queryset(self):
         return Job_Posting.objects.filter(company=self.kwargs["company_pk"])
@@ -26,6 +29,9 @@ class JobPostingViewSet(viewsets.ModelViewSet):
 
 
 class JobPostingAllViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Job_Posting.objects.all()
     serializer_class = JobPostingListSerializer
     permission_classes = [IsStaffOrReadOnly]
-    queryset = Job_Posting.objects.all()
+    filter_backends = [SearchFilter]
+
+    search_fields = ["company__cp_name", "jp_technology"]
