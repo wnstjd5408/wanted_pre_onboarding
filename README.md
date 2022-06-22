@@ -1,6 +1,6 @@
 # wanted_pre_onboarding
  <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
 
 
 ##1. Git Workflow
