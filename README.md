@@ -3,7 +3,7 @@
 <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white"/>
 
 
-##1. Git Workflow
+## 1. Git Workflow
 
 기능, 버그 수정, 문서 작성은 모두 별도 브랜치에서 작업하고, 이를 PR로 만들어 메인 브랜치인 `main`에 병합하는 것으로 한다.
 
