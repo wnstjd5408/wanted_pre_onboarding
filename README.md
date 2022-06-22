@@ -1,7 +1,16 @@
 # wanted_pre_onboarding
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python3.8-3776AB?style=flat-square&logo=python&logoColor=white"/></a>
 <a href="https://www.djangoproject.com/"><img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white"/></a>
 
+## Getting Started  
+### Installation
+<pre><code>git clone https://github.com/wnstjd5408/wanted_pre_onboarding.git
+
+pip install -r requirements.txt
+
+"WANTED_SECRET_KEY"  >> .env
+"WANTED_DEBUG" >> .env
+</code></pre>
 
 ## 1. Git Workflow
 
